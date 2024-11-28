@@ -22,12 +22,12 @@ navodnike. Ovo je najjednostavnije objasniti primjerima:
 
 ```python
 
-tekst = "ovo je u navodnicima pa se smatra tekstom"
-tekst = 'ovo je u apostrofima pa se isto smatra tekstom'
-tekst = "ako je ' u tekstu moramo koristiti navodnike"
-tekst = 'ako je " u tekstu koristi apostrofe'
-tekst = "ovaj "tekst" nije validno zapisan"
-SyntaxError: invalid syntax
+    tekst = "ovo je u navodnicima pa se smatra tekstom"
+    tekst = 'ovo je u apostrofima pa se isto smatra tekstom'
+    tekst = "ako je ' u tekstu moramo koristiti navodnike"
+    tekst = 'ako je " u tekstu koristi apostrofe'
+    tekst = "ovaj "tekst" nije validno zapisan"
+    SyntaxError: invalid syntax
 ```
 
 U primjeru gore su prikazani najčešći načini zapisivanja teksta u Python
