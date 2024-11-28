@@ -28,21 +28,13 @@ Unutar GitHub editora smo ispravili greške u konverziji, te comittali promjene 
 
 Umetanje teksta u drugi tekst:
 
-\>\>\> tekst = \"\"\"
-
-Bio sam u {mjesto}.
-
-Tamo sam {radnja}. Bilo mi je {kako} jer je vrijeme u {mjesto} bilo {vrijeme}.
-
-\"\"\"
+\>\>\> tekst = \"\"\"Bio sam u {mjesto}. Tamo sam {radnja}. Bilo mi je {kako} jer je vrijeme u {mjesto} bilo {vrijeme}.\"\"\"
 
 \>\>\> t = tekst.format(mjesto = 'Zadru', radnja='se kupao', kako='sjajno', vrijeme='lijepo')
 
 \>\>\> print(t)
 
-Bio sam u Zadru.
-
-Tamo sam se kupao. Bilo mi je sjajno jer je vrijeme u Zadru bilo lijepo.
+Bio sam u Zadru. Tamo sam se kupao. Bilo mi je sjajno jer je vrijeme u Zadru bilo lijepo.
 
 :::
 
@@ -53,20 +45,12 @@ Tamo sam se kupao. Bilo mi je sjajno jer je vrijeme u Zadru bilo lijepo.
 
 Umetanje teksta u drugi tekst:
 
-\>\>\> tekst = \"\"\"
-
-Bio sam u {mjesto}.
-
-Tamo sam {radnja}. Bilo mi je {kako} jer je vrijeme u {mjesto} bilo {vrijeme}.
-
-\"\"\"
+\>\>\> tekst = \"\"\"Bio sam u {mjesto}. Tamo sam {radnja}. Bilo mi je {kako} jer je vrijeme u {mjesto} bilo {vrijeme}.\"\"\"
 
 \>\>\> t = tekst.format(mjesto = 'Zadru', radnja='se kupao', kako='sjajno', vrijeme='lijepo')
 
 \>\>\> print(t)
 
-Bio sam u Zadru.
-
-Tamo sam se kupao. Bilo mi je sjajno jer je vrijeme u Zadru bilo lijepo.
+Bio sam u Zadru. Tamo sam se kupao. Bilo mi je sjajno jer je vrijeme u Zadru bilo lijepo.
 
 (```)            (bez zagrada)
