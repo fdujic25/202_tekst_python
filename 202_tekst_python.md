@@ -20,14 +20,15 @@ ima isto značenje. Koje znakove ćemo koristiti za označavanje teksta,
 najviše ovisi o tome da li sam tekstovni niz već sadrži apostrofe ili
 navodnike. Ovo je najjednostavnije objasniti primjerima:
 
-::: python
-Tekst u Pythonulisting:tekst1 \>\>\> tekst = \"ovo je u navodnicima pa
-se smatra tekstom\" \>\>\> tekst = 'ovo je u apostrofima pa se isto
-smatra tekstom' \>\>\> tekst = \"ako je ' u tekstu moramo koristiti
-navodnike\" \>\>\> tekst = 'ako je \" u tekstu koristi apostrofe' \>\>\>
-tekst = \"ovaj \"tekst\" nije validno zapisan\" SyntaxError: invalid
-syntax
-:::
+```python
+
+tekst = "ovo je u navodnicima pa se smatra tekstom"
+tekst = 'ovo je u apostrofima pa se isto smatra tekstom'
+tekst = "ako je ' u tekstu moramo koristiti navodnike"
+tekst = 'ako je " u tekstu koristi apostrofe'
+tekst = "ovaj "tekst" nije validno zapisan"
+SyntaxError: invalid syntax
+```
 
 U primjeru gore su prikazani najčešći načini zapisivanja teksta u Python
 kôdu. U ovom slučaju, samo zadnji redak nije valjan jer koristi iste
@@ -75,15 +76,16 @@ označavanja teksta je upravo da između trostrukih znakova možemo
 normalno pisati prijelome retka, prazne linije i koristiti navodnike
 kako hoćemo. Pogledajmo primjer:
 
-::: python
-Slobodan unos dužeg tekstalisting:tekst3 dugi_tekst = \"\"\" Ovdje
+```python
+Slobodan unos dužeg teksta
+dugi_tekst = \"\"\" Ovdje
 možemo pisati tekst koji može normalno prelaziti u druge retke,
 
 ostavljati prazne retke, koristiti \"duple navodnike\" i 'apostrofe'
 unutar teksta
 
 jednostavno uvlačiti tekst i slično! \"\"\"
-:::
+```
 
 Jedini tekst koji ne smijemo koristiti u prošlom primjeru su tri
 navodnika jedan za drugim. Da smo baš morali iskoristiti tri uzastopna
@@ -98,11 +100,11 @@ uglavnom znakove iz engleskog govornog područja)[^2]. Što se naših
 posebnih slova tiče, u sljedećem primjeru vidimo da ih možemo koristiti
 bez posebnih koncepata:
 
-::: python
-Hrvatska slova i drugi znakovilisting:tekst4 \>\>\> tekst = \"Python 3
-radi bez problema s čžšćđ\" \>\>\> print(tekst) python radi bez problema
-s čžšćđ
-:::
+```python
+Hrvatska slova i drugi znakovi
+    tekst = "Python 3 radi bez problema s čžšćđ"
+    print(tekst)
+```
 
 Isto vrijedi i za druga pisma poput ćirilice ili kineskog pisma.
 
@@ -125,16 +127,18 @@ individualne znakove kao i djelove teksta. To činimo koristeći se
 pozicijom, odnosno indeksima, individualnih znakova i uglatim zagradama.
 Pogledajmo primjer:
 
-::: python
-Dohvat dijelova tekstalisting:tekst_indeksiranje \>\>\> tekst = \"Monty
-Python i značenje života.\" \>\>\> tekst\[0\] \# dohvati prvi znak 'M'
-\>\>\> tekst\[1\] \# dohvati drugi znak 'o' \>\>\> tekst\[0:5\] \#
-dohvati znakove 0, 1, 2, 3, 4 'Monty' \>\>\> tekst\[6:12\] \# dohvati
-znakove 6, 7, 8, 9, 10, 11 'Python' \>\>\> tekst\[-1\] \# dohvati zadnji
-znak '.' \>\>\> tekst\[-2\] \# dohvati predzadnji znak 'a' \# dohvati od
-prvog znaka pa sve dok se ne pojavi znak y prvi put \>\>\>
-tekst\[0:tekst.find('y')\] 'Mont'
-:::
+``` python
+Dohvat dijelova teksta
+    tekst = \"Monty Python i značenje života.\"
+    tekst\[0\] \# dohvati prvi znak 'M'
+    tekst\[1\] \# dohvati drugi znak 'o'
+    tekst\[0:5\] \# dohvati znakove 0, 1, 2, 3, 4 'Monty'
+    tekst\[6:12\] \# dohvati znakove 6, 7, 8, 9, 10, 11 'Python'
+    tekst\[-1\] \# dohvati zadnji znak '.'
+    tekst\[-2\] \# dohvati predzadnji znak 'a'
+    tekst\[0:tekst.find('y')\] 'Mont' \# dohvati od prvog znaka pa sve dok se ne pojavi znak y prvi put
+    
+```
 
 Kao što vidimo dijelove tekstualnog niza možemo dohvatiti tako što nakon
 tekstualne vrijednosti (odnosno varijable koja se na takvu vrijednost
@@ -169,16 +173,15 @@ struktura podataka, riječ je o vrlo važnom konceptu.
 Vrlo česta radnja s tekstom je promjena iz velikih slova u mala i
 obratno. Pogledajmo koje mogućnosti nam dopušta sama vrsta *str*:
 
-::: python
-Promjena veličine slovalisting:tekst5 \>\>\> tekst = \"cvrči CVRČI 10-ak
-cvrčaka\" \>\>\> tekst.lower() \# pretvori sva slova u mala slova 'cvrči
-cvrči 10-ak cvrčaka' \>\>\> tekst.upper() \# pretvori sva slova u velika
-slova 'CVRČI CVRČI 10-AK CVRČAKA' \>\>\> tekst.capitalize() \# pretvori
-prvo slovo u veliko, a ostala u mala 'Cvrči cvrči 10-ak cvrčaka' \>\>\>
-tekst.title() \# pretvori prvo slovo svake riječi u veliko, a ostala u
-mala 'Cvrči Cvrči 10-Ak Cvrčaka' \>\>\> tekst.swapcase() \# velika slova
-u mala, a mala u velika 'CVRČI cvrči 10-AK CVRČAKA'
-:::
+``` python
+Promjena veličine slova
+    tekst = \"cvrči CVRČI 10-ak cvrčaka\"
+    tekst.lower() \# pretvori sva slova u mala slova 'cvrči cvrči 10-ak cvrčaka'
+    tekst.upper() \# pretvori sva slova u velika slova 'CVRČI CVRČI 10-AK CVRČAKA'
+    tekst.capitalize() \# pretvori prvo slovo u veliko, a ostala u mala 'Cvrči cvrči 10-ak cvrčaka'
+    tekst.title() \# pretvori prvo slovo svake riječi u veliko, a ostala u mala 'Cvrči Cvrči 10-Ak Cvrčaka
+    tekst.swapcase() \# velika slova u mala, a mala u velika 'CVRČI cvrči 10-AK CVRČAKA'
+```
 
 Kao što vidimo, postoji više metoda za promjenu veličine slova i iz
 samih naziva kao i prethodnog primjera je poprilično jasno što rade. Sve
@@ -205,14 +208,13 @@ micanje znakova s početka (lijeve strane) teksta i/ili kraja (desne
 strane) teksta, ali ne i iz sredine. Najčešći slučaj u ovom kontekstu je
 brisanje praznog prostora. Pogledajmo primjer:
 
-::: python
-Izbacivanje praznog prostora s početka i kraja tekstalisting:tekst6
-\>\>\> tekst = ' korisnički unos ' \>\>\> tekst.lstrip() \# left strip,
-ukloni prazan prostor s početka 'korisnički unos ' \>\>\> tekst.rstrip()
-\# right strip, ukloni prazan prostor s kraja ' korisnički unos' \>\>\>
-tekst.strip() \# strip, ukloni prazan prostor s obje strane 'korisnički
-unos'
-:::
+``` python
+Izbacivanje praznog prostora s početka i kraja teksta
+    tekst = ' korisnički unos '
+    tekst.lstrip() \# left strip, ukloni prazan prostor s početka 'korisnički unos '
+    tekst.rstrip() \# right strip, ukloni prazan prostor s kraja ' korisnički unos'
+    tekst.strip() \# strip, ukloni prazan prostor s obje strane 'korisnički unos'
+```
 
 Metode `lstrip`{.python}, `rstrip`{.python} i `strip`{.python} pozvane
 bez parametara, dakle, miču *prazan prostor* s lijeve, desne ili obje
@@ -228,14 +230,13 @@ završili u zapisanim podacima.
 Što ako želimo na ovaj način izbaciti neke druge znakove, a ne samo
 razmake? Pogledajmo kako u sljedećem primjeru.
 
-::: python
-Izbacivanje znakova s početka i kraja tekstalisting:tekst7 \>\>\> tekst
-= '.! 2000 .!' \>\>\> tekst.strip('.') \# ukloni točku s početka i kraja
-'! 2000 .!' \>\>\> tekst.strip('.!') \# ukloni bilo koju kombinaciju
-točke i uskličnika s početka i kraja ' 2000 ' \>\>\> tekst.strip(' .!')
-\# ukloni kombinacije razmaka, točke i uskličnika s početka i kraja
-'2000'
-:::
+```python
+Izbacivanje znakova s početka i kraja teksta
+    tekst = '.! 2000 .!'
+    tekst.strip('.') \# ukloni točku s početka i kraja'! 2000 .!'
+    tekst.strip('.!') \# ukloni bilo koju kombinaciju točke i uskličnika s početka i kraja ' 2000 '
+    tekst.strip(' .!') \# ukloni kombinacije razmaka, točke i uskličnika s početka i kraja '2000'
+```
 
 Metoda `strip`{.python}, dakle, prima jedan parametar koji je niz
 znakova i zatim miče sve *kombinacije znakova* uključenih u taj niz s
