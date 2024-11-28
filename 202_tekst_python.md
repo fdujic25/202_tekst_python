@@ -8,7 +8,7 @@ vrijednost koja može sadržavati nula ili više znakova. Tekst od nula
 znakova se naziva \"praznim tekstom\" (eng. *empty string*) i na neki
 način odgovara konceptu nule kod brojeva.
 
-U Pythonu se tekst čuva kroz vrstu podataka `str`{.python}, što je
+U Pythonu se tekst čuva kroz vrstu podataka `str`, što je
 skraćeno od engleske riječi *string* odnosno "niska". Svaka vrijednost
 koja je zapisana pod navodnicima se smatra tekstom. Ovo je vrlo važno
 zapamtiti jer vrijedi za mnoge računalne tehnologije: ako je nešto pod
@@ -39,10 +39,10 @@ uočljive.
 Svaki niz znakova u Python kôdu, kao i općenito u računalnim
 tehnologijama, koji je omeđen navodnicima smatra se tekstom odnosno
 točno tim slijedom znakova koji ne stoje za nešto drugo. Na primjer,
-`print(tekst)`{.python} će ispisati vrijednost pridruženu varijabli
-`tekst`{.python} ili javiti grešku ako varijabla tekst nije definirana,
-a `print('tekst')`{.python} jednostavno ispisuje tekst
-`"tekst"`{.python}. Također, vrijednost `'1'`{.python} se smatra
+`print(tekst)` će ispisati vrijednost pridruženu varijabli
+`tekst` ili javiti grešku ako varijabla tekst nije definirana,
+a `print('tekst')` jednostavno ispisuje tekst
+`"tekst"`. Također, vrijednost `'1'` se smatra
 tekstom, a ne brojem, jer je pod navodnicima. Zbrajanje ove vrijednosti
 s brojem javlja grešku jer se pokušavaju zbrojiti tekst i broj što nije
 definirana radnja. Drugim riječima, računalu je ovo kao da smo mu zadali
@@ -57,13 +57,13 @@ kako možemo time upravljati će biti prikazano u zasebnom poglavlju, ali
 recimo za sada da je prilikom javljanja pogreške najvažnije pročitati
 zadnju liniju jer je upravo ta linija krajnja poruka korisniku što se
 zapravo dogodilo. U primjeru ranije to je
-`TypeError: Can't convert 'int' object to str implicitly`{.python} što
+`TypeError: Can't convert 'int' object to str implicitly` što
 možemo prevesti kao \"Greška u vrsti vrijednosti: int se ne može
-implicitno pretvoriti u str\". Drugim riječima, `int`{.python}
+implicitno pretvoriti u str\". Drugim riječima, `int`
 vrijednost moramo prvo eksplicitno pretvoriti u tekst ako ju želimo
 spajati s tekstom jer radnja koja se provodi putem operatora
-`+`{.python} nije definirana između vrsti vrijednosti `int`{.python} i
-`str`{.python}. Linije prije zadnje su početnicima manje važne, često ih
+`+` nije definirana između vrsti vrijednosti `int` i
+`str`. Linije prije zadnje su početnicima manje važne, često ih
 ima znatno više no u ovom primjeru i služe pronalaženju gdje se greška
 dogodila u kôdu što je posebno korisno kod većih programa.
 
@@ -159,7 +159,7 @@ Indeksima možemo brojati i unazad. -1 znači zadnji znak, -2 predzadnji i
 tako dalje. Ovo je zgodna mogućnost jer kada nešto želimo dohvatiti s
 kraja teksta, na ovaj način ne moramo znati koliko je tekst dugačak.
 
-Također, neke metode stringova, poput metode `str.find`{.python},
+Također, neke metode stringova, poput metode `str.find`,
 vraćaju indekse kao rezultat pa su vrlo korisne u ovom smislu.
 
 Vrijedi i spomenuti da je dohvat nekog dijela vrijednosti (kod vrsta
@@ -191,11 +191,11 @@ nema smisla, poput brojeva i interpunkcije.
 Što se samih metoda tiče, glavna razlika od funkcije je što metode
 hijerarhijski pripadaju određenim vrstama vrijednosti i što implicitno
 primaju vrijednost prije točke kao prvi parametar. Kada izvršimo
-`tekst.upper`{.python})) to je isto kao da smo izvršili nepostojeću
-funkciju `upper`{.python}tekst)). Razlog postojanju metoda je
-organizacija kôda. Na ovaj način, metoda `upper`{.python} je svrstana
-pod vrstu vrijednosti `str`{.python} što je i jedina vrsta vrijednosti s
-kojom ova metoda može raditi. Kada bi `upper`{.python} bila funkcija,
+`tekst.upper`)) to je isto kao da smo izvršili nepostojeću
+funkciju `upper`tekst)). Razlog postojanju metoda je
+organizacija kôda. Na ovaj način, metoda `upper` je svrstana
+pod vrstu vrijednosti `str` što je i jedina vrsta vrijednosti s
+kojom ova metoda može raditi. Kada bi `upper` bila funkcija,
 imali bi jako velik broj funkcija i za svaku bi morali pamtiti na koju
 vrstu vrijednosti se odnos. Na ovaj način se izbjegao taj problem jer su
 metode koje rade s određenom vrstom vrijednosti hijerarhijski
@@ -216,7 +216,7 @@ Izbacivanje praznog prostora s početka i kraja teksta
     tekst.strip() \# strip, ukloni prazan prostor s obje strane 'korisnički unos'
 ```
 
-Metode `lstrip`{.python}, `rstrip`{.python} i `strip`{.python} pozvane
+Metode `lstrip`, `rstrip` i `strip` pozvane
 bez parametara, dakle, miču *prazan prostor* s lijeve, desne ili obje
 strane teksta. Prazan prostor sačinjavaju različite vrste razmaka
 (ukjučujući, na primjer, tabulator i tzv. razmak bez rastavljanja) i
@@ -290,8 +290,8 @@ Umetanje teksta u drugi tekst 1
 
 ```
 
-U prikazanom primjeru, znakovi \"{}\" se koriste u smislu \"\_\_\_\_\_\_\_\_\_\_\_\_\" u tiskanim formularima, odnosno označavaju rezervirano mjesto gdje se dodaje tekst. Vitičaste zagrade u tekstu služe kako bi se putem metode `format`{.python} na njihovo mjesto ubacilo neki tekst. U prethodnom primjeru, koristimo samo dva
-rezervirana mjesta i poziv na metodu `format`{.python} ubacuje vrijednosti na njihovo mjesto prema redoslijedu. Ovaj slučaj je praktičan kod kraćih tekstova, ali nije podoban kad imamo puno mjesta u tekstu na koji želimo ubaciti vrijednosti jer ih je lako zamijeniti. Metoda `format`{.python} nam stoga dopušta i da imenujemo mjesta za ubacivanje i zatim u njih ubacujemo vrijednosti prema tim imenima. Pogledajmo primjer:
+U prikazanom primjeru, znakovi \"{}\" se koriste u smislu \"\_\_\_\_\_\_\_\_\_\_\_\_\" u tiskanim formularima, odnosno označavaju rezervirano mjesto gdje se dodaje tekst. Vitičaste zagrade u tekstu služe kako bi se putem metode `format` na njihovo mjesto ubacilo neki tekst. U prethodnom primjeru, koristimo samo dva
+rezervirana mjesta i poziv na metodu `format` ubacuje vrijednosti na njihovo mjesto prema redoslijedu. Ovaj slučaj je praktičan kod kraćih tekstova, ali nije podoban kad imamo puno mjesta u tekstu na koji želimo ubaciti vrijednosti jer ih je lako zamijeniti. Metoda `format` nam stoga dopušta i da imenujemo mjesta za ubacivanje i zatim u njih ubacujemo vrijednosti prema tim imenima. Pogledajmo primjer:
 
 ``` python
 
