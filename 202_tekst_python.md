@@ -252,13 +252,13 @@ U radu s tekstom je često potrebno raditi s posebnim znakovima koje ne možemo 
 ``` python
 
 Novi redak i tabulator u tekstu:
-\>\>\> tekst = 'Ovaj tekst\nsadrži\nprijelome redaka'
-\>\>\> print(tekst)
+    tekst = 'Ovaj tekst\nsadrži\nprijelome redaka'
+    print(tekst)
 Ovaj tekst
 sadrži
 prijelome redaka
-\>\>\> tekst = 'tekst počinje s tabulatorom'
-\>\>\> print(tekst)
+    tekst = 'tekst počinje s tabulatorom'
+    print(tekst)
     Ovaj tekst počinje s tabulatorom
 
 ```
@@ -282,10 +282,10 @@ Vrlo česta i važna radnja s tekstom je umetanje dinamičnih dijelova teksta u 
 ``` python
 
 Umetanje teksta u drugi tekst 1
-\>\>\> tekst = ' Bi sam i'
-\>\>\> tekst.format('o', 'vani', 'ludo sam se zabavio!')
+    tekst = ' Bi sam i'
+    tekst.format('o', 'vani', 'ludo sam se zabavio!')
 'Bio sam vani i ludo sam se zabavio!'
-\>\>\> tekst.format('la', 'na predavanju', 'bilo mi je dosadno :( !')
+    tekst.format('la', 'na predavanju', 'bilo mi je dosadno :( !')
 'Bila sam na predavanju i bilo mi je dosadno :( !'
 
 ```
@@ -296,13 +296,13 @@ rezervirana mjesta i poziv na metodu `format`{.python} ubacuje vrijednosti na nj
 ``` python
 
 Umetanje teksta u drugi tekst:
-\>\>\> tekst = \"\"\"
+    tekst = \"\"\"
 Bio sam u {mjesto}.
 
 Tamo sam {radnja}. Bilo mi je {kako} jer je vrijeme u {mjesto} bilo {vrijeme}.
 \"\"\"
-\>\>\> t = tekst.format(mjesto = 'Zadru', radnja='se kupao', kako='sjajno', vrijeme='lijepo')
-\>\>\> print(t)
+    t = tekst.format(mjesto = 'Zadru', radnja='se kupao', kako='sjajno', vrijeme='lijepo')
+    print(t)
 
 Bio sam u Zadru.
 
@@ -321,29 +321,29 @@ Postoji naravno još niz radnji koje možemo provoditi nad tekstom. Dapače, tek
 ```python
 
 Druge česte radnje s tekstom:
-\>\>\> tekst = 'Ne da mi se ovo čitati.'
+    tekst = 'Ne da mi se ovo čitati.'
 
 \# zamijeni sve znakove \"a\" sa znakom \"x\"
-\>\>\> tekst.replace('a', 'x')
+    tekst.replace('a', 'x')
 'ne dx mi se ovo čitxt'
 \# može i s duljim nizovima
-\>\>\> tekst.replace('ne da mi se', 'želim')
+    tekst.replace('ne da mi se', 'želim')
 'želim ovo čitat'
 
 
 \# da li neki tekst sadrži znak ili drugi manji tekst
-\>\>\> 'o' in tekst
+    'o' in tekst
 True
-\>\>\> 'u' in tekst
+    'u' in tekst
 False
-\>\>\> 'ovo' in tekst
+    'ovo' in tekst
 True
 
 \# prebroji koliko se puta pojavljuje neki tekst u duljem tekstu
-\>\>\> tekst.count('a')
+    tekst.count('a')
 2 
 \# pronađi poziciju na kojoj se prvi put pojavljuje neki tekst u duljem tekstu
-\>\>\> tekst.find('a')
+    tekst.find('a')
 4
 
 ```
