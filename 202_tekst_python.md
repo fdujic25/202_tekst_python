@@ -267,12 +267,11 @@ Važan koncept pri radu s posebnim znakovima je korištenje znaka *backslash*, o
 
 Osim navedenog, *backslash* se koristi kao takozvani *escape character*. To znači da ga koristimo kako bi negirali značenje nekog znaka koji bi se inače posebno tretirao. Drugim riječima, ukoliko je znak nakon neki poseban znak, tada se njegovo posebno značenje ignorira i tretira se kao normalan znak. Na primjer, \\\\unosi znak *backslash* u tekst, a \\ unosi navodnik u tekst koji neće poremetiti normalno korištenje navodnika za označavanje teksta.
 
-```
- python
-Korištenje znaka \\za negiranje posebnog značenjalisting:tekst9 \>\>\>
-tekst = \"Ovaj tekst sadrži\
-, ï b́ez da ti znakovi imaju posebno značenje\" \>\>\> print(tekst) Ovaj
-tekst sadrži   \" i ' bez da ti znakovi imaju posebno značenje
+```python
+Korištenje znaka \\za negiranje posebnog značenja
+    tekst = \"Ovaj tekst sadrži\, ï b́ez da ti znakovi imaju posebno značenje\"
+    print(tekst)
+    Ovaj tekst sadrži   \" i ' bez da ti znakovi imaju posebno značenje
 
 ```
 
