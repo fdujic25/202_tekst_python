@@ -8,7 +8,9 @@ Datoteku smo otvorili u VSC-u te smo je konvertirali u markdown ekstenziju na sl
  1. Otvorili smo tekst datoteku
  2. Otvorili terminal
  3. Pomoću naredbe:
-        pandoc 202_tekst_python.tex -o 202_tekst_python.md
+    ```
+    pandoc 202_tekst_python.tex -o 202_tekst_python.md
+    ```
     Konvertirali smo .tex u .md
 
 # GitHub
