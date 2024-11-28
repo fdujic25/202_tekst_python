@@ -246,123 +246,107 @@ strane.
 
 ### Posebni znakovi i izbjegavanje posebnog značenja
 
-U radu s tekstom je često potrebno raditi s posebnim znakovima koje ne
-možemo reprezentirati s nekim individualnim vidljivim znakom. Najčešći
-takvi slučajevi su vjerojatno znak za novi redak i znak za tabulator.
-Kako uključiti ove znakove u stringove? Pogledajmo primjer:
+U radu s tekstom je često potrebno raditi s posebnim znakovima koje ne možemo reprezentirati s nekim individualnim vidljivim znakom. Najčešći takvi slučajevi su vjerojatno znak za novi redak i znak za tabulator. Kako uključiti ove znakove u stringove? Pogledajmo primjer:
 
-::: python
-Novi redak i tabulator u tekstulisting:tekst8 \>\>\> tekst = 'Ovaj
-tekstredaka' \>\>\> print(tekst) Ovaj tekst sadrži prijelome redaka
-\>\>\> tekst = 'tekst počinje s tabulatorom' \>\>\> print(tekst) Ovaj
-tekst počinje s tabulatorom
-:::
+``` python
 
-Važan koncept pri radu s posebnim znakovima je korištenje znaka
-*backslash*, odnosno \"\\\". Ovaj znak je u ASCII tablicu uvršten upravo
-radi programiranja i to zato jer se rijetko koristi u jeziku. U
-suvremenim programskim jezicima ovaj znak se često koristi kako bi
-označio da znak nakon njega treba tretirati posebno. U primjeru
-[\[listing:tekst8\]](#listing:tekst8){reference-type="ref"
-reference="listing:tekst8"} vidimo kako se koristi kako bi promijenio
-značenje znaka \"n\" u \"novi red\" (znak koji se na engleskom zove
-*newline*) i značenje znaka \"t\" u \"tabulator\". Ova dva znaka bi nam
-inače bilo teško zapisati u tekst budući da se radi o tzv. nevidljivim
-znakovima odnosno praznom prostoru u tekstu.
+Novi redak i tabulator u tekstu:
+\>\>\> tekst = 'Ovaj tekst\nsadrži\nprijelome redaka'
+\>\>\> print(tekst)
+Ovaj tekst
+sadrži
+prijelome redaka
+\>\>\> tekst = 'tekst počinje s tabulatorom'
+\>\>\> print(tekst)
+    Ovaj tekst počinje s tabulatorom
 
-Osim navedenog, *backslash* se koristi kao takozvani *escape character*.
-To znači da ga koristimo kako bi negirali značenje nekog znaka koji bi
-se inače posebno tretirao. Drugim riječima, ukoliko je znak nakon neki
-poseban znak, tada se njegovo posebno značenje ignorira i tretira se kao
-normalan znak. Na primjer, \\\\unosi znak *backslash* u tekst, a \\
-unosi navodnik u tekst koji neće poremetiti normalno korištenje
-navodnika za označavanje teksta.
+```
 
-::: python
+Važan koncept pri radu s posebnim znakovima je korištenje znaka *backslash*, odnosno \"\\\". Ovaj znak je u ASCII tablicu uvršten upravo radi programiranja i to zato jer se rijetko koristi u jeziku. U suvremenim programskim jezicima ovaj znak se često koristi kako bi označio da znak nakon njega treba tretirati posebno. U primjeru vidimo kako se koristi kako bi promijenio značenje znaka \"n\" u \"novi red\" (znak koji se na engleskom zove *newline*) i značenje znaka \"t\" u \"tabulator\". Ova dva znaka bi nam inače bilo teško zapisati u tekst budući da se radi o tzv. nevidljivim znakovima odnosno praznom prostoru u tekstu.
+
+Osim navedenog, *backslash* se koristi kao takozvani *escape character*. To znači da ga koristimo kako bi negirali značenje nekog znaka koji bi se inače posebno tretirao. Drugim riječima, ukoliko je znak nakon neki poseban znak, tada se njegovo posebno značenje ignorira i tretira se kao normalan znak. Na primjer, \\\\unosi znak *backslash* u tekst, a \\ unosi navodnik u tekst koji neće poremetiti normalno korištenje navodnika za označavanje teksta.
+
+```
+ python
 Korištenje znaka \\za negiranje posebnog značenjalisting:tekst9 \>\>\>
 tekst = \"Ovaj tekst sadrži\
 , ï b́ez da ti znakovi imaju posebno značenje\" \>\>\> print(tekst) Ovaj
 tekst sadrži   \" i ' bez da ti znakovi imaju posebno značenje
-:::
+
+```
 
 ### Umetanje dijelova teksta
 
-Vrlo česta i važna radnja s tekstom je umetanje dinamičnih dijelova
-teksta u veći statičan tekst. Ovo je nalik popunjavanju tiskanih
-formulara koji umjesto nekih dijelova teksta (gdje, na primjer, treba
-upisati ime i prezime) imaju prazan prostor za to koji se često
-naznačuje s \"\_\_\_\_\_\_\_\_\_\_\_\_\". Pogledajmo primjer:
+Vrlo česta i važna radnja s tekstom je umetanje dinamičnih dijelova teksta u veći statičan tekst. Ovo je nalik popunjavanju tiskanih formulara koji umjesto nekih dijelova teksta (gdje, na primjer, treba upisati ime i prezime) imaju prazan prostor za to koji se često naznačuje s \"\_\_\_\_\_\_\_\_\_\_\_\_\". Pogledajmo primjer:
 
-::: python
-Umetanje teksta u drugi tekst 1listing:tekst10 \>\>\> tekst = ' Bi sam i
-' \>\>\> tekst.format('o', 'vani', 'ludo sam se zabavio!') 'Bio sam vani
-i ludo sam se zabavio!' \>\>\> tekst.format('la', 'na predavanju', 'bilo
-mi je dosadno :( !') 'Bila sam na predavanju i bilo mi je dosadno :( !'
-:::
+``` python
 
-U prikazanom primjeru, znakovi \"{}\" se koriste u smislu
-\"\_\_\_\_\_\_\_\_\_\_\_\_\" u tiskanim formularima, odnosno označavaju
-rezervirano mjesto gdje se dodaje tekst. Vitičaste zagrade u tekstu
-služe kako bi se putem metode `format`{.python} na njihovo mjesto
-ubacilo neki tekst. U prethodnom primjeru, koristimo samo dva
-rezervirana mjesta i poziv na metodu `format`{.python} ubacuje
-vrijednosti na njihovo mjesto prema redoslijedu. Ovaj slučaj je
-praktičan kod kraćih tekstova, ali nije podoban kad imamo puno mjesta u
-tekstu na koji želimo ubaciti vrijednosti jer ih je lako zamijeniti.
-Metoda `format`{.python} nam stoga dopušta i da imenujemo mjesta za
-ubacivanje i zatim u njih ubacujemo vrijednosti prema tim imenima.
-Pogledajmo primjer:
+Umetanje teksta u drugi tekst 1
+\>\>\> tekst = ' Bi sam i'
+\>\>\> tekst.format('o', 'vani', 'ludo sam se zabavio!')
+'Bio sam vani i ludo sam se zabavio!'
+\>\>\> tekst.format('la', 'na predavanju', 'bilo mi je dosadno :( !')
+'Bila sam na predavanju i bilo mi je dosadno :( !'
 
-::: python
-Umetanje teksta u drugi tekst 2listing:tekst11 \>\>\> tekst = \"\"\" Bio
-sam u mjesto.
+```
 
-Tamo sam radnja. Bilo mi je kako jer je vrijeme u mjesto bilo vrijeme.
-\"\"\" \>\>\> t = tekst.format(mjesto = 'Zadru', radnja='se kupao',
-kako='sjajno', vrijeme='lijepo') \>\>\> print(t)
+U prikazanom primjeru, znakovi \"{}\" se koriste u smislu \"\_\_\_\_\_\_\_\_\_\_\_\_\" u tiskanim formularima, odnosno označavaju rezervirano mjesto gdje se dodaje tekst. Vitičaste zagrade u tekstu služe kako bi se putem metode `format`{.python} na njihovo mjesto ubacilo neki tekst. U prethodnom primjeru, koristimo samo dva
+rezervirana mjesta i poziv na metodu `format`{.python} ubacuje vrijednosti na njihovo mjesto prema redoslijedu. Ovaj slučaj je praktičan kod kraćih tekstova, ali nije podoban kad imamo puno mjesta u tekstu na koji želimo ubaciti vrijednosti jer ih je lako zamijeniti. Metoda `format`{.python} nam stoga dopušta i da imenujemo mjesta za ubacivanje i zatim u njih ubacujemo vrijednosti prema tim imenima. Pogledajmo primjer:
+
+``` python
+
+Umetanje teksta u drugi tekst:
+\>\>\> tekst = \"\"\"
+Bio sam u {mjesto}.
+
+Tamo sam {radnja}. Bilo mi je {kako} jer je vrijeme u {mjesto} bilo {vrijeme}.
+\"\"\"
+\>\>\> t = tekst.format(mjesto = 'Zadru', radnja='se kupao', kako='sjajno', vrijeme='lijepo')
+\>\>\> print(t)
 
 Bio sam u Zadru.
 
 Tamo sam se kupao. Bilo mi je sjajno jer je vrijeme u Zadru bilo lijepo.
-:::
 
-U ovom primjeru pojavljuje nam se novi koncept: *imenovani parametri
-funkcija* (odnosno metoda). Svi parametri koje smo do sada koristili
-slali smo funkcijama prema njihovim pozicijama jer se radilo o
-jednostavnim slučajevima koji su uglavnom primali jedan do dva
-parametra, a u ovom slučaju šaljemo ih imenovano. Metoda *format* prima
-onoliko imenovanih parametara koliko smo ih naveli u tekstu koji se
-\"formatira\". Imena u tekstu koji se formatira moraju, stoga, biti
-validna imena za Python varijable!
+```
 
-Prikazani način slaganja teksta možda na prvi pogled djeluje samo kao
-zgodan način spajanja različitog teksta, ali u praksi je vrlo često
-korisna. Na primjer, na ovaj način možemo stvarati HTML ili XML kao i
-stvarati razne izvještaje o radu programa ili njegovim rezultatima.
+U ovom primjeru pojavljuje nam se novi koncept: *imenovani parametri funkcija* (odnosno metoda). Svi parametri koje smo do sada koristili slali smo funkcijama prema njihovim pozicijama jer se radilo ojednostavnim slučajevima koji su uglavnom primali jedan do dva parametra, a u ovom slučaju šaljemo ih imenovano. Metoda *format* prima onoliko imenovanih parametara koliko smo ih naveli u tekstu koji se \"formatira\". Imena u tekstu koji se formatira moraju, stoga, biti validna imena za Python varijable!
+
+Prikazani način slaganja teksta možda na prvi pogled djeluje samo kao zgodan način spajanja različitog teksta, ali u praksi je vrlo često korisna. Na primjer, na ovaj način možemo stvarati HTML ili XML kao i stvarati razne izvještaje o radu programa ili njegovim rezultatima.
 
 ### Članstvo i zamjena
 
-Postoji naravno još niz radnji koje možemo provoditi nad tekstom.
-Dapače, tekst je vrlo kompleksna tvorevina za čiju obradu je moguće
-napisati niz knjiga ovisno o vrsti teksta, procesima koje koristimo za
-njegovu obradu te našim ciljevima. Pogledajmo zato ovdje samo još neke
-česte radnje s tekstom:
+Postoji naravno još niz radnji koje možemo provoditi nad tekstom. Dapače, tekst je vrlo kompleksna tvorevina za čiju obradu je moguće napisati niz knjiga ovisno o vrsti teksta, procesima koje koristimo za njegovu obradu te našim ciljevima. Pogledajmo zato ovdje samo još neke česte radnje s tekstom:
 
-::: python
-Druge česte radnje s tekstomlisting:tekst_ostalo \>\>\> tekst = 'Ne da
-mi se ovo čitati.'
+```python
 
-\# zamijeni sve znakove \"a\" sa znakom \"x\" \>\>\> tekst.replace('a',
-'x') 'ne dx mi se ovo čitxt' \# može i s duljim nizovima \>\>\>
-tekst.replace('ne da mi se', 'želim') 'želim ovo čitat'
+Druge česte radnje s tekstom:
+\>\>\> tekst = 'Ne da mi se ovo čitati.'
 
-\# da li neki tekst sadrži znak ili drugi manji tekst \>\>\> 'o' in
-tekst True \>\>\> 'u' in tekst False \>\>\> 'ovo' in tekst True
+\# zamijeni sve znakove \"a\" sa znakom \"x\"
+\>\>\> tekst.replace('a', 'x')
+'ne dx mi se ovo čitxt'
+\# može i s duljim nizovima
+\>\>\> tekst.replace('ne da mi se', 'želim')
+'želim ovo čitat'
 
-\# prebroji koliko se puta pojavljuje neki tekst u duljem tekstu \>\>\>
-tekst.count('a') 2 \# pronađi poziciju na kojoj se prvi put pojavljuje
-neki tekst u duljem tekstu \>\>\> tekst.find('a') 4
-:::
+
+\# da li neki tekst sadrži znak ili drugi manji tekst
+\>\>\> 'o' in tekst
+True
+\>\>\> 'u' in tekst
+False
+\>\>\> 'ovo' in tekst
+True
+
+\# prebroji koliko se puta pojavljuje neki tekst u duljem tekstu
+\>\>\> tekst.count('a')
+2 
+\# pronađi poziciju na kojoj se prvi put pojavljuje neki tekst u duljem tekstu
+\>\>\> tekst.find('a')
+4
+
+```
 
 [^1]: Dapače, neki jezici razlikuju vrstu podataka \"znak\" (*char*) od
     vrste podataka \"niz znakova\" odnosno *string*.
